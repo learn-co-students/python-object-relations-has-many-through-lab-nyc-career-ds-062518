@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0, '..')
 from driver import Driver
 from trip import Trip
-from passenger import Passenger
+from passenger1 import Passenger
 from artist import Artist
 from song import Song
 from genre import Genre
