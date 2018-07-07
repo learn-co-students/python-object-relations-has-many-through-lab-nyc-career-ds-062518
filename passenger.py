@@ -1,16 +1,23 @@
-# import Trip class here
+from trip import Trip # import Trip class here
 
 class Passenger:
 
     def __init__(self, name, age):
         self._name = name
         self._age = age
+    @property
+    def name(self):
+        return self._name
+    @property
+    def age(self):
+        return self._age
 
     def trips(self):
-        pass
+        return [trip for trip in Trip.all() if trip.passenger == self]
 
     def drivers(self):
-        pass
+        return [trip.driver for trip in Trip.all() if trip.passenger == self]
 
     def trip_count(self):
-        pass
+        number_of_trips = len(self.trips())
+        return number_of_trips
