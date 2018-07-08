@@ -7,7 +7,11 @@ class Genre:
         self._name = name
 
     def songs(self):
-        pass
+        return [song for song in Song.all() if song.genre == self]
 
     def artists(self):
-        pass
+        return [song.artist for song in Song.all() if song.genre == self]
+
+    @property
+    def name(self):
+        return self._name

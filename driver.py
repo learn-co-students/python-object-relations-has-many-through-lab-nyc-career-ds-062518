@@ -1,4 +1,4 @@
-# remeber to import the Trip class here
+from trip import Trip
 
 class Driver:
 
@@ -7,10 +7,26 @@ class Driver:
         self._driving_style = driving_style
 
     def trips(self):
-        pass
+        return [trip for trip in Trip.all() if trip.driver == self]
 
     def passengers(self):
-        pass
+        return [trip.passenger for trip in Trip.all() if trip.driver == self]
 
     def trip_count(self):
-        pass
+        return len(self.trips())
+
+    @property
+    def name(self):
+        return self._name
+
+    # @name.getter
+    # def name(self, name):
+    #     self._name = name
+
+    @property
+    def driving_style(self):
+        return self._driving_style
+
+    # @driving_style.getter
+    # def driving_style(self, driving_style):
+    #     self._driving_style = driving_style
